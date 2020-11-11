@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2020-11-11T05:04:28Z"
+  finalizers:
+  - service.kubernetes.io/load-balancer-cleanup
+  labels:
+    app: prime-factor-app
+  name: prime-factor-app-service
+  namespace: default
+  resourceVersion: "8992"
+  selfLink: /api/v1/namespaces/default/services/prime-factor-app-service
+  uid: aff8b995-b0fa-4995-8ffc-04f33379e2e0
+spec:
+  clusterIP: 10.35.249.245
+  externalTrafficPolicy: Cluster
+  ports:
+  - nodePort: 30624
+    port: 80
+    protocol: TCP
+    targetPort: 3000
+  selector:
+    app: prime-factor-app
+  sessionAffinity: None
+  type: LoadBalancer
+status:
+  loadBalancer:
+    ingress:
+    - ip: 34.64.158.178
